@@ -12,6 +12,10 @@ app.get('/home', (req, res) => {
     res.render('main/index.ejs');
 });
 
+app.get('/contribute', (req, res) => {
+    res.render('main/contribute.ejs');
+});
+
 app.get('/signup', (req, res) => {
     res.render('users/signup.ejs');
 });

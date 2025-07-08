@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+ <div class="containerGreen">
+    <div class="header">
+        <img src="https://cdn-icons-png.flaticon.com/128/5769/5769344.png" height="50px" width="50px" alt="recycleImg">
+        <pre><h2> Upload Waste Item</h2></pre>
+    </div>
+    <br>
+
+    <div class="ControForm">
+        <form>
+            <input type="text" placeholder="Item name(Eg; Mixer Grinder)" id="itemGreen" required class="formGreen form-control">
+            <br><br>
+            <textarea placeholder="Describe your product (optional)" rows="4" cols="62" class="formGreen form-control"></textarea>
+            <br><br>
+            <input type="file" required style="border-radius: 5px;" class="form-control">
+            <br><br>
+            <input type="text" placeholder="Your Location(Eg; Dadar, Mumbai)" class="formGreen form-control" required>
+            <br><br>
+            <div id="map"></div>
+            <br><br>
+            <div>
+                <button  class="btn btn-success">Submit Item</button>
+            </div>
+        </form>
+    </div>
+ </div>
