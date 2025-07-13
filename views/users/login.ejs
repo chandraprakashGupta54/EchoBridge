@@ -1,34 +1,19 @@
- <% layout("/layouts/boilerplate.ejs") -%>
+<% layout("/layouts/boilerplate.ejs") -%>
 
+    <body class="sl">
+        <div style="display:flex;  flex-direction: column; justify-content:center; align-items: center; height: 70vh;">
+            <div class="maindiv">
 
-    
- <div class="containerForm">
-    <div>
-        <button id="userButton">User</button>
-        <button id="ngoButton">NGO</button>
-    </div>
-    
-    <br>
-    
-    <div class="userHead">
-        <h1 id="head">USER LOGIN</h1>
-    </div>
-    <br>
+                <h1>LOGIN</h1>
+                <form action="/login" method="post" class="needs-validation" novalidate>
 
-    <div class="userForm">
-        <form>
-
-            <input type="email" id="userEmail"  name="userEmail" placeholder="User Email" required class="userInput">
-            <br><br>
-            <input type="password" id="userPassword"  name="userPassword" placeholder="Password" required class="userInput">
-            <br><br>
-            <div>
-                <button  id="userLoginButton">LOGIN</button>
+                    <input type="text" name="username" id="name" placeholder="User Name or Ngo Name" required
+                        class="inputfield form-control">
+                    <input type="password" name="name" id="password" placeholder="Password" required
+                        class="inputfield form-control">
+                    <button class="login">Login</button>
+                </form>
+                <p>Don't Have a Account ? <a href="/signup">Sign up</a></p>
             </div>
-            <br><br>
-        </form>
-    </div>
-    
-    <p style="color:rgb(73, 36, 36); font-size: 18px;">Don't have an account? <a href="/signup">Sign Up</a></p>
-
-</div>
+        </div>
+    </body>
