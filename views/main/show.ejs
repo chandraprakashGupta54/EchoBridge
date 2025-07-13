@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+    <script>
+        const MAP_URL = "<%= process.env.MAPTILER_URL %>";
+        let uploads = <%- JSON.stringify(uploads) %>;
+        let needs = <%- JSON.stringify(needs) %>;
+        // let description = "<%= uploads.description %>";
+        // let title = "<%= uploads.category %> - <%= uploads.type %> waste";
+    </script>
+    <div class="row">
+        <h3 class="col-12 text-center">
+            <%= uploads.category %> - <%= uploads.type %>
+        </h3>
+        <div class="card  listing-card w-50 mx-auto">
+            <img src="<%= uploads.image.url %>" class="card-img-top show-img listing-img" alt="uploads_image">
+            <div class="card-body">
+                <p class="card-text">
+                    <u style="font-size: 18px;"><b><i><%= uploads.owner.username %></i></b></u>: &nbsp; <%= uploads.description %> <br>
+
+                    <b>Location:</b> &nbsp; <%= uploads.location %><br>
+                </p>
+            </div>
+
+            <br>
+            <h5 class="col-12 text-center"> Item Location & Interested Users </h5>
+            <div id="showmap"></div>
+        </div>
+    </div>
+    <script src="/js/showmap.js"></script>

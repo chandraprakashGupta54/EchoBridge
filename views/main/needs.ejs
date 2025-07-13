@@ -2,19 +2,18 @@
     <script>
         const MAP_URL = "<%= process.env.MAPTILER_URL %>";
     </script>
-
     <div class="containerGreen">
         <div class="header">
             <img src="https://cdn-icons-png.flaticon.com/128/5769/5769344.png" height="50px" width="50px"
                 alt="recycleImg">
-            <pre><h2> Upload Waste Item</h2></pre>
+            <pre><h2> Specify Your Need </h2></pre>
         </div>
         <br>
 
         <div class="ControForm">
-            <form action="/uploads" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <form action="/profile" method="POST" class="needs-validation" novalidate>
                 <div>
-                    <select class="form-select formGreen" name="uploads[category]" required>
+                    <select class="form-select formGreen" name="needs[category]" required>
                         <option value="" disabled selected>Select Category of Waste</option>
                         <option value="Electronics">Electronics</option>
                         <option value="Furniture">Furniture</option>
@@ -30,32 +29,14 @@
                 <br>
 
                 <div>
-                    <select class="form-select formGreen" name="uploads[type]" required>
-                        <option value="" disabled selected>Select Type of Waste</option>
-                        <option value="Reusable">Reusable</option>
-                        <option value="Recyclable">Recyclable</option>
-                        <option value="Disposable">Disposable</option>
-                        <option value="NotSure">Not Sure</option>
-                    </select>
-                    <div class="invalid-feedback">Please select type of waste</div>
-                </div>
-                <br><br>
-
-                <div>
-                    <textarea placeholder="Describe your product (Laptops, Mobiles, length of cloth, wood, other etc)"
-                        rows="4" cols="62" class="formGreen form-control" name="uploads[description]" required></textarea>
-                    <div class="invalid-feedback">Please describe your product</div>
+                    <textarea placeholder="Describe your need (Laptops, Mobiles, length of cloth, wood, other etc)"
+                        rows="4" cols="62" class="formGreen form-control" name="needs[description]" required></textarea>
+                    <div class="invalid-feedback">Please describe what you need</div>
                 </div>
                 <br>
 
                 <div>
-                    <input type="file" name="uploads[image]" required class="form-control">
-                    <div class="invalid-feedback">Please upload a valid image</div>
-                </div>
-                <br><br>
-
-                <div>
-                    <input type="text" name="uploads[location]" placeholder="Your Location(Eg; Dadar, Mumbai)"
+                    <input type="text" name="needs[location]" placeholder="Your Location(Eg; Dadar, Mumbai)"
                         class="formGreen form-control location" required>
                     <div class="invalid-feedback">Please enter a valid location</div>
                 </div>
