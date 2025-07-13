@@ -8,7 +8,7 @@ body {
     padding: 0px;
     background-color: beige;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    */
 }
 
 .center {
@@ -27,6 +27,8 @@ body {
     background-color: beige;
 }
 
+/* Navbar Styling */
+
 .navbar {
     display: flex;
     align-content: center;
@@ -38,8 +40,16 @@ body {
 }
 
 .webname {
+    margin-left: 1rem;
     text-decoration: none;
     color: white;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbtn {
@@ -51,7 +61,7 @@ body {
     color: #16a34a;
     padding: 8px 10px;
     font-weight: bold;
-    transition: 0.5;
+    transition: 0.5s;
 }
 
 .navbtn:hover {
@@ -96,6 +106,8 @@ body {
 }
 
 .div2 {
+    margin-left: -5.7rem;
+    width: 99vw;
     text-align: center;
     background-color: #16a34a;
     padding: 25px;
@@ -107,8 +119,8 @@ body {
     padding: 15px;
     margin: 2rem;
     height: 18rem;
-    animation: slide 1s ease-in;
-    animation-delay: 2s;
+    /* animation: slide 1s ease-in;
+    animation-delay: 2s; */
 }
 
 .div3 p,
@@ -128,27 +140,26 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: #16a34a;
     font-weight: bold;
     font-size: 22px;
-    color: black;
+    color: white;
 }
 
+/* Signup / Login Page Styling */
 
-.containerForm {
+/* .containerForm {
 
-    box-shadow: 0 7px 10px green;
-    max-width: 800px;
+    box-shadow: 0 7px 10px green; 
     border-radius: 10px;
-    margin: 80px;
-    margin-left: 450px;
-    padding: 20px;
+    margin: 80px auto;
+    padding: 20px 0;
     width: max-content;
     background: beige;
     text-align: center;
-}
+} */
 
-#userButton {
+/* #userButton {
     margin: 10px;
     padding: 15px;
     border-style: none;
@@ -190,39 +201,45 @@ h1 {
 #ngoButton:hover {
     background-color: green;
     color: white;
-}
+} */
 
-.userHead {
+/* .userHead {
     color: rgb(73, 36, 36);
 
 }
 
 #userLoginButton {
+    margin-left: 6rem;
     border-style: none;
     width: 7rem;
     border-radius: 12rem;
-    background-color: green;
+    background-color: #16a34a;
     color: white;
     height: 3rem;
     box-shadow: 0 5px 7px rgb(73, 36, 36);
+    transition: 0.5s;
+}
+
+#userLoginButton:hover {
+    transform: scale(1.1);
 }
 
 .userForm {
-    margin: 5px;
-    padding: 5px;
-    height: 12rem;
+    margin: 5px auto;
+    padding: 5px 40px;
+    padding-right: 9rem;
     width: 100%;
 }
 
 .userInput {
     border-style: none;
     border-radius: 5px;
-    width: 80%;
+    width: 150%;
     background-color: white;
     height: 2rem;
     font-size: 18px;
     box-shadow: 0 5px 7px rgb(73, 36, 36);
-}
+} */
 
 /* Contribute Page Styling */
 
@@ -246,9 +263,60 @@ h1 {
     border: 1px solid rgb(121, 121, 121);
 }
 
+.form-check {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #map {
     height: 80vh;
     width: 50vw;
+}
+
+/* Uploads Page  */
+.index-img {
+    height: 15rem;
+}
+
+.listing-card {
+    border: none;
+    margin-bottom: 2rem;
+    background-color: beige;
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.index-img:hover {
+    border: 2px solid #16a34a;
+    border-radius: 1rem;
+}
+
+.card-body {
+    padding: 0;
+    background-color: beige;
+}
+
+.card-text {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Show Page Styling */
+
+.show-img {
+    height: 50vh;
+}
+
+#showmap {
+    height: 80vh;
+    width: 42.5vw;
 }
 
 /* Animations */

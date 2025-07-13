@@ -1,7 +1,8 @@
 let coords = [72.8777, 19.0760];
+const locationInput = document.querySelector(".location");
 
 const map = L.map('map').setView(coords, 13);
-L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=WyQVIak1fVFzBm92eoGM", {
+L.tileLayer(MAP_URL, {
   tileSize: 512,
   zoomOffset: -1,
   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
@@ -27,7 +28,7 @@ async function fetchNGOsFromNominatim(lat, lng, radiusKm = 30) {
     lat - latOffset
   ].join(',');
 
-  const url = `${base}?format=json&q=sanstha&bounded=1&limit=50&viewbox=72.7,19.2,73.2,18.9&email=503manashsvjc@gmail.com`;
+  const url = `${base}?format=json&q=foundation&bounded=1&limit=50&viewbox=72.7,19.2,73.2,18.9&email=503manashsvjc@gmail.com`;
 
   try {
     const response = await fetch(url);
@@ -150,17 +151,34 @@ function showNearby(lat, lng) {
 
 }
 
+let myAddress = async (lat, lon) => {
+  try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=16&addressdetails=1&email=503manashsvjc@gmail.com`);
+        const data = await res.json();
+
+        const address = data.display_name;
+
+        address ? locationInput.value = address : locationInput.placeholder = "Enter your location";
+      } catch (err) {
+        console.error("Reverse geocoding error:", err);
+        locationInput.placeholder = "Enter your location";
+      }
+}
+
 // Use the browser's geolocation
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     position => {
 
+      console.log("User's position:", position);
       coords = [
         position.coords.latitude,
         position.coords.longitude,
       ];
 
       showNearby(coords[0], coords[1]);
+      myAddress(coords[0], coords[1]);
+    
 
       // // Center map on user location
       // map.setView(coords, 15);
@@ -169,18 +187,20 @@ if (navigator.geolocation) {
       // const marker = L.marker(coords, { icon: greenIcon }).addTo(map).bindPopup(`<h4>${title}</h4><p>Book for more details</p>`).openPopup();
 
     },
-    error => {
-      alert("Location access denied or not available.");
-      const marker = L.marker(coords, { icon: greenIcon }).addTo(map).bindPopup(`<h4>${title}</h4><p>Book for more details</p>`).openPopup();
-      console.error(error);
-    },
-    {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 10000
-    }
+error => {
+  alert("Location access denied or not available.");
+  const marker = L.marker(coords, { icon: greenIcon }).addTo(map).bindPopup(`<h4>${title}</h4><p>Book for more details</p>`).openPopup();
+  console.error(error);
+  locationInput.placeholder = "Enter your location";
+},
+{
+  enableHighAccuracy: true,
+  timeout: 10000,
+  maximumAge: 10000
+}
   );
 } else {
   alert("Geolocation is not supported by your browser.");
+  locationInput.placeholder = "Enter your location";
   const marker = L.marker(coords, { icon: greenIcon }).addTo(map).bindPopup(`<h4>${title}</h4><p>Book for more details</p>`).openPopup();
 }
